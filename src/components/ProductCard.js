@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { useThemeHook } from "../GlobalComponents/ThemeProvider";
 import { useCart } from "react-use-cart";
+import { BsCartPlus } from "react-icons/bs";
 
 const ProductCard = (props) => {
   let { image, price, title } = props.data;
@@ -35,11 +36,27 @@ const ProductCard = (props) => {
       </div>
 
       <Card.Body>
-        <Card.Title>{title}</Card.Title>
+        <Card.Title
+          style={{
+            textOverflow: "ellipsis",
+            overflow: "hidden",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {title}
+        </Card.Title>
         <Card.Title>
           Rs. <span className="h3">{price}</span>
         </Card.Title>
-        <Button variant="primary">Go somewhere</Button>
+        <Button
+          onClick={() => addToCart()}
+          className={`${
+            theme ? "bg-dark-primary text-black" : "bg-light-primary"
+          } d-flex align-item-center m-auto border-0`}
+        >
+          <BsCartPlus size="1.8rem" />
+          Add to cart
+        </Button>
       </Card.Body>
     </Card>
   );

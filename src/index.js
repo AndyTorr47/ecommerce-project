@@ -5,11 +5,14 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "./GlobalComponents/ThemeProvider";
 import { render } from "react-dom";
+import { CartProvider } from "react-use-cart";
 
 render(
   <React.StrictMode>
     <ThemeProvider>
-      <App />
+      <CartProvider>
+        <App />
+      </CartProvider>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
